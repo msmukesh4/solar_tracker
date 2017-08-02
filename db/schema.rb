@@ -10,7 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170802151302) do
+ActiveRecord::Schema.define(version: 20170802162456) do
+
+  create_table "device_data", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "device_id"
+    t.string   "temprature"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["device_id"], name: "index_device_data_on_device_id", using: :btree
+  end
+
+  create_table "devices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "uuid",       default: "",       null: false
+    t.string   "place"
+    t.string   "name"
+    t.string   "model"
+    t.string   "status",     default: "Active"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
+  create_table "user_devices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "device_id"
+    t.string   "status",     default: "Active"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.index ["device_id"], name: "index_user_devices_on_device_id", using: :btree
+    t.index ["user_id"], name: "index_user_devices_on_user_id", using: :btree
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "",       null: false
@@ -43,4 +71,7 @@ ActiveRecord::Schema.define(version: 20170802151302) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
   end
 
+  add_foreign_key "device_data", "devices"
+  add_foreign_key "user_devices", "devices"
+  add_foreign_key "user_devices", "users"
 end
