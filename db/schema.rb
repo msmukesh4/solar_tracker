@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170802162456) do
+ActiveRecord::Schema.define(version: 20170803145455) do
 
   create_table "device_data", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "device_id"
@@ -21,13 +21,14 @@ ActiveRecord::Schema.define(version: 20170802162456) do
   end
 
   create_table "devices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "uuid",       default: "",       null: false
+    t.string   "uuid",         default: "",       null: false
     t.string   "place"
     t.string   "name"
     t.string   "model"
-    t.string   "status",     default: "Active"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.string   "status",       default: "Active"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.string   "access_token",                    null: false
   end
 
   create_table "user_devices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
