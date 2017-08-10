@@ -12,5 +12,9 @@ Rails.application.routes.draw do
 		end
 	end
 
+	resources :devices
+
+	# match ':controller(/:action(/:id))', :via => [:get, :post]
+
 
 end

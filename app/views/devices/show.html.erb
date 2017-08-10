@@ -1,0 +1,75 @@
+<p id="notice"><%= notice %></p>
+
+<% @page_title = "Device" %>
+
+<div class="right_col" role="main">
+    <div class="">
+        <div class="row">
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2> Device <%=@device.id %> </h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                    
+                    	<div class="col-md-2 col-sm-3 col-xs-12" style="background:#1da7e0; color:#000000">
+                    		<h2>Device Name  </h2>
+                    	</div>
+                    	<div class="col-md-10 col-sm-9 col-xs-12" style="background:#1da7e0; color:#000000">
+							<h2> : <%= @device.name %></h2>
+                    	</div>
+                    
+                    	<div class="col-md-2 col-sm-3 col-xs-12" style="background:#1da7e0; color:#000000">
+                    		<h2>Device ID  </h2>
+                    	</div>
+                    	<div class="col-md-10 col-sm-9 col-xs-12" style="background:#1da7e0; color:#000000">
+							<h2> : <%= @device.device_id %></h2>
+                    	</div>
+                    
+                    	<div class="col-md-2 col-sm-3 col-xs-12" style="background:#1da7e0; color:#000000">
+                    		<h2>Device Model  </h2>
+                    	</div>
+                    	<div class="col-md-10 col-sm-9 col-xs-12" style="background:#1da7e0; color:#000000">
+							<h2> : <%= @device.model %></h2>
+                    	</div>
+                    
+                    	<div class="col-md-2 col-sm-3 col-xs-12" style="background:#1da7e0; color:#000000">
+                    		<h2>Device Place  </h2>
+                    	</div>
+                    	<div class="col-md-10 col-sm-9 col-xs-12" style="background:#1da7e0; color:#000000">
+							<h2> : <%= @device.place %></h2>
+                    	</div>
+                    
+
+                    	<div class="col-md-2 col-sm-3 col-xs-12" style="background:#1da7e0; color:#000000">
+                    		<h2> Status </h2>
+                    	</div>
+                    	<div class="col-md-10 col-sm-9 col-xs-12" style="background:#1da7e0; color:#000000">
+							<h2> : <%= @device.status %></h2>
+                    	</div>
+
+                    	<div class="col-md-2 col-sm-3 col-xs-12" style="background:#1da7e0; color:#000000">
+                    		<h2> Latitude </h2>
+                    	</div>
+                    	<div class="col-md-10 col-sm-9 col-xs-12" style="background:#1da7e0; color:#000000">
+							<h2> : <%= @device.latitude %></h2>
+                    	</div>
+
+                    	<div class="col-md-2 col-sm-3 col-xs-12" style="color:#000000">
+                    		<h2> Longitude </h2>
+                    	</div>
+                    	<div class="col-md-10 col-sm-9 col-xs-12" style="color:#000000">
+							<h2> : <%= @device.longitude %></h2>
+                    	</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%= link_to 'Edit', edit_device_path(@device) %> |
+<%= link_to 'Back', devices_path %>

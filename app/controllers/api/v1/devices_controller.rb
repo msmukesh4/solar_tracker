@@ -7,6 +7,8 @@ class Api::V1::DevicesController < ApplicationController
 
 		render :json => {"status": "device found and data updated"}
 
+		# datapoints
+		# u.user_device.first.device.device_data.first.humidity
 		
 		# if params[:access_token]
 		# 	d = Device.where(access_token: params[:access_token]).first

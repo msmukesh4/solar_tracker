@@ -10,25 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170803145455) do
+ActiveRecord::Schema.define(version: 20170802162456) do
 
   create_table "device_data", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "device_id"
-    t.string   "temprature"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "temperature"
+    t.string   "humidity"
+    t.string   "solar_pannel"
+    t.string   "battery"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.index ["device_id"], name: "index_device_data_on_device_id", using: :btree
   end
 
   create_table "devices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "uuid",         default: "",       null: false
+    t.string   "uuid",                                default: "",       null: false
+    t.string   "device_id",                                              null: false
     t.string   "place"
+    t.decimal  "latitude",   precision: 10, scale: 7, default: "0.0"
+    t.decimal  "longitude",  precision: 10, scale: 7, default: "0.0"
     t.string   "name"
     t.string   "model"
-    t.string   "status",       default: "Active"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.string   "access_token",                    null: false
+    t.string   "status",                              default: "Active"
+    t.datetime "created_at",                                             null: false
+    t.datetime "updated_at",                                             null: false
   end
 
   create_table "user_devices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
