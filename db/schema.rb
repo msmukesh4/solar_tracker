@@ -12,7 +12,10 @@
 
 ActiveRecord::Schema.define(version: 20170802162456) do
 
-  create_table "device_data", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "device_data", force: :cascade do |t|
     t.integer  "device_id"
     t.string   "temperature"
     t.string   "humidity"
@@ -23,7 +26,7 @@ ActiveRecord::Schema.define(version: 20170802162456) do
     t.index ["device_id"], name: "index_device_data_on_device_id", using: :btree
   end
 
-  create_table "devices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "devices", force: :cascade do |t|
     t.string   "uuid",                                default: "",       null: false
     t.string   "device_id",                                              null: false
     t.string   "place"
@@ -36,7 +39,7 @@ ActiveRecord::Schema.define(version: 20170802162456) do
     t.datetime "updated_at",                                             null: false
   end
 
-  create_table "user_devices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "user_devices", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "device_id"
     t.string   "status",     default: "Active"
@@ -46,7 +49,7 @@ ActiveRecord::Schema.define(version: 20170802162456) do
     t.index ["user_id"], name: "index_user_devices_on_user_id", using: :btree
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",       null: false
     t.string   "encrypted_password",     default: "",       null: false
     t.string   "reset_password_token"

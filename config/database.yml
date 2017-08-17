@@ -10,17 +10,17 @@
 #   http://dev.mysql.com/doc/refman/5.7/en/old-client.html
 #
 default: &default
-  adapter: mysql2
-  encoding: utf8
-  pool: 5
-  username: mukesh
-  password: 1234
-  socket: /var/run/mysqld/mysqld.sock
+  adapter: postgresql
+  encoding: unicode
   host: localhost
+  port: 5432
+  pool: 5
 
 development:
   <<: *default
   database: SolarTracker_development
+  username: mukesh
+  password: password1
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -28,6 +28,8 @@ development:
 test:
   <<: *default
   database: SolarTracker_test
+  username: mukesh
+  password: password1
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is

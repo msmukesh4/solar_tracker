@@ -7,6 +7,8 @@ class Api::V1::DevicesController < ApplicationController
 
 		render :json => {"status": "device found and data updated"}
 
+		DeviceDatum.create! device_id:1, temperature: params[:data]
+
 		# datapoints
 		# u.user_device.first.device.device_data.first.humidity
 		
