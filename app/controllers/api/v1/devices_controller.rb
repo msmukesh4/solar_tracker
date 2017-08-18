@@ -5,9 +5,14 @@ class Api::V1::DevicesController < ApplicationController
 
 	def save_data
 
-		render :json => {"status": "device found and data updated"}
+		if params[:data]
+			DeviceDatum.create! device_id:1, temperature: params[:data]
+			render :json => {"status": "device found and data updated"}
+		else
+			render :json => {"status": "please provide data"}
+		end
 
-		DeviceDatum.create! device_id:1, temperature: params[:data]
+		
 
 		# datapoints
 		# u.user_device.first.device.device_data.first.humidity
