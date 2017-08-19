@@ -1,0 +1,59 @@
+admin#show
+<table class="table table-striped table-bordered table-hover dataTables-example" >
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Contact Number</th>
+            <th>Status</th>
+            <th>Device Accessable</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% if !@observer_list.blank? %>
+            <% (0..(@observer_list.length - 1)).each do |i| %>
+                <%= render :partial=>"users/admin/observer_list", :locals => {:item => i} %>
+            <% end %>
+        <% end %>
+    </tbody>
+</table>
+
+<!-- show device list to give permissions for users to monitor devices -->
+<div class="device-select-modal hide">
+	<table class="table table-striped table-bordered table-hover dataTables-example" >
+	    <thead>
+	        <tr>
+	        	<th>#</th>
+	            <th>Name</th>
+	            <th>Model</th>
+	            <th>Device id</th>
+	            <th>Place</th>
+	            <th>Select</th>
+	        </tr>
+	    </thead>
+	    <tbody>
+	        <% if !@devices_list.blank? %>
+	            <% (0..(@devices_list.length - 1)).each do |i| %>
+	                <%= render :partial=>"users/admin/devices_list", :locals => {:item => i} %>
+	            <% end %>
+	        <% end %>
+	    </tbody>
+	</table>
+	<input type="button" class="update-user-devices" value="update"></input>
+
+</div>
+
+<%= content_for :javascript do -%>
+    <script type="text/javascript">
+    	$(document).ready(function() {
+
+    		$(".device-select-unselect").click(function(){
+        		$(".device-select-modal").removeClass("hide");
+   		 	});
+
+   		 	$(".update-user-devices").click(function(){
+   		 		$(".device-select-modal").addClass("hide");
+   		 	});
+    	});
+    </script>
+<% end -%>
