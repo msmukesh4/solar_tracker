@@ -66,6 +66,35 @@ class DevicesController < ApplicationController
     end
   end
 
+  def update_user_device
+    # check that the device is assigned to the observer
+    # if not assign it 
+
+    puts "hello"
+    @device_ids = params[:device_ids].split(",")
+    @observer = User.find(params[:observer_id])
+
+    unless @device_ids.blank?
+      @device_ids.each do |id|
+        Rails.looger.info("id is : "+id)
+        if !UserDevice.includes(:user).find(id).user == @observer
+          @user_device = UserDevice.new
+          @user_device.user_id = @observer.id
+          @user_device.device_id = id
+          @user_device.save
+        end
+      end
+    end
+
+    respond_to do |format|
+      format.html { redirect_to user_path(current_user.id) }
+    end
+    
+
+
+    # if other devices assigned previously are not listed unassign those devices
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_device

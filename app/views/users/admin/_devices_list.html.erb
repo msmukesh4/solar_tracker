@@ -4,7 +4,10 @@
 	<td><%= @devices_list[item].model %></td>
 	<td><%= @devices_list[item].device_id %></td>
 	<td><%= @devices_list[item].place %></td>
-	<td>
-		<input type="checkbox" class="device-select-unselect" value="Device"></input>
-	</td>
+
+	<% if UserDevice.includes(:user).find(@devices_list[item].id).user == @observer %>
+		<td><%= check_box_tag "device_ids[]", @devices_list[item].id, {:checked => "checked"} %></input></td>
+	<% else %>
+		<td><%= check_box_tag "device_ids[]", @devices_list[item].id %></input></td>
+	<% end %>
 </tr>

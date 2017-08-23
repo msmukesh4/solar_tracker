@@ -16,8 +16,12 @@ Rails.application.routes.draw do
 		end
 	end
 
-	resources :devices
+	resources :devices do
+		post 'update_user_device', on: :collection
+	end
 
-	resources :users
+	resources :users do
+		get 'assign_device', on: :collection
+	end
 
 end

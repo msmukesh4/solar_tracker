@@ -1,0 +1,27 @@
+<div class="device-select-modal">
+	<%= form_tag update_user_device_devices_path, :method => :put do %>
+		<%= hidden_field_tag :observer_id , @observer.id %>
+		<table class="table table-striped table-bordered table-hover dataTables-example" >
+		    <thead>
+		        <tr>
+		        	<th>#</th>
+		            <th>Name</th>
+		            <th>Model</th>
+		            <th>Device id</th>
+		            <th>Place</th>
+		            <th>Select</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		        <% if !@devices_list.blank? %>
+		            <% (0..(@devices_list.length - 1)).each do |i| %>
+		                <%= render :partial=>"users/admin/devices_list", :locals => {:item => i} %>
+		            <% end %>
+		        <% end %>
+		    </tbody>
+		</table>
+
+		<%= submit_tag("Update", :class => "btn-primary btn") %>
+	<% end %>
+
+</div>

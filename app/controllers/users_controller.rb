@@ -12,4 +12,11 @@ class UsersController < ApplicationController
 		
 	end
 
+	def assign_device
+
+		@devices_list = Device.where(:status => "Active")
+		@observer = User.find(params[:observer_id])
+		render "users/admin/assign_device"
+	end
+
 end

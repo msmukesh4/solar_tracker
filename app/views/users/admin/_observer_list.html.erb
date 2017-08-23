@@ -4,6 +4,7 @@
 	<td><%= @observer_list[item].status %></td>
 	<td><%= @observer_list[item].user_device.where(:status => "Active").distinct.pluck(:id)%></td>
 	<td>
-		<input type="button" class="device-select-unselect" value="Device"></input>
+		<!-- <input type="button" class="assign-device-to-user" data-value=<%=@observer_list[item].id%> value="Device"></input> -->
+		<%= link_to("Add / Remove Device", {:action => 'assign_device', :observer_id => @observer_list[item].id}, :class => 'btn-info btn') %>
 	</td>
 </tr>
