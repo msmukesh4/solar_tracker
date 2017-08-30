@@ -4,5 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 	
-	has_many :user_device
+	has_many :device, :through => :user_devices
+	has_many :user_devices
 end
