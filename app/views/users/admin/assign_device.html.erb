@@ -1,6 +1,7 @@
 <div class="device-select-modal">
 	<%= form_tag update_user_device_devices_path, :method => :post do %>
 		<%= hidden_field_tag :observer_id , @observer.id %>
+		<%= hidden_field_tag "device_ids[]", nil %>
 		<table class="table table-striped table-bordered table-hover dataTables-example" >
 		    <thead>
 		        <tr>

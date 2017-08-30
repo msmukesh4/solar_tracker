@@ -3,12 +3,8 @@
 	<td><%= @observer_list[item].first_name%> <%= @observer_list[item].last_name%></td>
 	<td><%= @observer_list[item].contact_number %></td>
 	<td><%= @observer_list[item].status %></td>
-	<td><% @observer_list[item].user_device.where(:status => "Active").each do |ud| %>
-			<%= ud.device.id %>,
-		<% end %>
-		</td>
+	<td><%= @observer_list[item].device_ids.sort %></td>
 	<td>
-		<!-- <input type="button" class="assign-device-to-user" data-value=<%=@observer_list[item].id%> value="Device"></input> -->
 		<%= link_to("Add / Remove Device", {:action => 'assign_device', :observer_id => @observer_list[item].id}, :class => 'btn-info btn') %>
 	</td>
 </tr>

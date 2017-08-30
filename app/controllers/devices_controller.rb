@@ -71,20 +71,23 @@ class DevicesController < ApplicationController
     # if not assign it 
 
     Rails.logger.info("device_ids : "+params[:device_ids].to_s)
-    @device_ids = params[:device_ids]
-    @observer = User.find(params[:observer_id])
+    observer = User.find(params[:observer_id])
+    observer.device_ids = params[:device_ids]
 
-    unless @device_ids.blank?
-      @device_ids.each do |id|
-        Rails.logger.info("id is : "+id)
-        if UserDevice.includes(:user).find(id).user != @observer
-          @user_device = UserDevice.new
-          @user_device.user_id = @observer.id
-          @user_device.device_id = id
-          @user_device.save
-        end
-      end
-    end
+    # @device_ids = params[:device_ids]
+    # @observer = User.find(params[:observer_id])
+
+    # unless @device_ids.blank?
+    #   @device_ids.each do |id|
+    #     Rails.logger.info("id is : "+id)
+    #     if !Device.find(id).users.exists?(params[:observer_id])
+    #       @user_device = UserDevice.new
+    #       @user_device.user_id = params[:observer_id]
+    #       @user_device.device_id = id
+    #       @user_device.save
+    #     end
+    #   end
+    # end
 
     respond_to do |format|
       format.html { redirect_to user_path(current_user.id) }
