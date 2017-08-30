@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 
 	def assign_device
 
-		@devices_list = Device.where(:status => "Active")
+		@devices_list = Device.where(:status => "Active").order(:id)
 		@observer = User.find(params[:observer_id])
 		render "users/admin/assign_device"
 	end

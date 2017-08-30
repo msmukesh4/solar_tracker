@@ -6,8 +6,8 @@
 	<td><%= @devices_list[item].place %></td>
 
 	<% if UserDevice.includes(:user).find(@devices_list[item].id).user == @observer %>
-		<td><%= check_box_tag "device_ids[]", @devices_list[item].id, {:checked => "checked"} %></input></td>
+		<td><%= check_box_tag "device_ids[]", @devices_list[item].id, {:checked => "checked"} %></td>
 	<% else %>
-		<td><%= check_box_tag "device_ids[]", @devices_list[item].id %></input></td>
+		<td><%= check_box_tag "device_ids[]", @devices_list[item].id %></td>
 	<% end %>
 </tr>

@@ -70,14 +70,14 @@ class DevicesController < ApplicationController
     # check that the device is assigned to the observer
     # if not assign it 
 
-    puts "hello"
-    @device_ids = params[:device_ids].split(",")
+    Rails.logger.info("device_ids : "+params[:device_ids].to_s)
+    @device_ids = params[:device_ids]
     @observer = User.find(params[:observer_id])
 
     unless @device_ids.blank?
       @device_ids.each do |id|
-        Rails.looger.info("id is : "+id)
-        if !UserDevice.includes(:user).find(id).user == @observer
+        Rails.logger.info("id is : "+id)
+        if UserDevice.includes(:user).find(id).user != @observer
           @user_device = UserDevice.new
           @user_device.user_id = @observer.id
           @user_device.device_id = id
