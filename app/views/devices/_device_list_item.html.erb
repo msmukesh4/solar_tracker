@@ -1,0 +1,12 @@
+<tr>
+	<td><%= item.id %></td>
+	<td><%=	item.name %></td>
+	<td><%= item.model %></td>
+	<td><%= item.device_id %></td>
+	<td><%= item.place %></td>
+	<td>
+		<%= link_to 'Show', item , :class => 'btn-info btn'%> &nbsp; 
+		<%= link_to 'Edit', edit_device_path(item) , :class => 'btn-info btn'%>	&nbsp; 
+        <%= link_to 'Destroy', item, :class => 'btn-danger btn', method: :delete, data: { confirm: 'Are you sure?' } %>
+	</td>	
+</tr>
