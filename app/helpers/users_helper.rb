@@ -3,7 +3,7 @@ module UsersHelper
 	def request_render(user)
 		if user.is_admin
 
-			@observer_list = User.where(:is_admin => false, :status => "Active")
+			@observer_list = User.where(:is_admin => false, :status => "Active").order(:id)
 			@devices_list = Device.where(:status => "Active")
 			render partial: "users/admin/show"
 
