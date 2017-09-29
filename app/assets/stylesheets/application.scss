@@ -16,7 +16,12 @@
 
  */
 
+/* bootstrap is replaced by gentelella
 @import "bootstrap-sprockets";
 @import "bootstrap";
+*/
+
+@import "gentelella";
+@import "gentelella-custom";
 
 @import "custom";

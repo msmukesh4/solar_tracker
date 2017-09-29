@@ -1,22 +1,44 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
   <head>
     <title>SolarTracker</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>    
+    <%#= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%#= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>    
   </head>
 
   <body>
     <p id="notice"><%= notice %></p>
-  	<% if user_signed_in? %>
-  		<%= link_to "Logout", destroy_user_session_path, method: :delete, class: "page-scroll btn-danger btn" %>
+  	<%# if user_signed_in? %>
+  		<%#= link_to "Logout", destroy_user_session_path, method: :delete, class: "page-scroll btn-danger btn" %>
       <br/>
       <br/><br/>
-    <% end %>
-    <%= yield %>
+    <%# end %>
+    <%#= yield %>
 
-    <%= yield :javascript %>
+    <%#= yield :javascript %>
+  </body>
+</html>
+ -->
+
+ <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%= csrf_meta_tags %>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+
+    <title>Gentelella Alela!</title>
+
+  </head>
+
+  <body class="nav-md">
+    <%= yield %>
+    <%= javascript_include_tag 'application' %>
   </body>
 </html>
