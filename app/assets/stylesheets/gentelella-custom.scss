@@ -1277,11 +1277,7 @@ table.countries_list td {
     line-height: 30px;
     border-top: 1px solid #eeeeee
 }
-.dataTables_paginate a {
-    padding: 6px 9px !important;
-    background: #ddd !important;
-    border-color: #ddd !important
-}
+
 .paging_full_numbers a.paginate_active {
     background-color: rgba(38, 185, 154, 0.59) !important;
     border-color: rgba(38, 185, 154, 0.59) !important
@@ -1312,51 +1308,6 @@ table.jambo_table tbody tr.selected td {
     border-top: 1px solid rgba(38, 185, 154, 0.4);
     border-bottom: 1px solid rgba(38, 185, 154, 0.4)
 }
-.dataTables_paginate a {
-    background: #ff0000
-}
-.dataTables_wrapper {
-    position: relative;
-    clear: both;
-    zoom: 1
-}
-.dataTables_processing {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 250px;
-    height: 30px;
-    margin-left: -125px;
-    margin-top: -15px;
-    padding: 14px 0 2px 0;
-    border: 1px solid #ddd;
-    text-align: center;
-    color: #999;
-    font-size: 14px;
-    background-color: white
-}
-.dataTables_length {
-    width: 40%;
-    float: left
-}
-.dataTables_filter {
-    width: 50%;
-    float: right;
-    text-align: right
-}
-.dataTables_info {
-    width: 60%;
-    float: left
-}
-.dataTables_paginate {
-    float: right;
-    text-align: right
-}
-table.dataTable th.focus,
-table.dataTable td.focus {
-    outline: 2px solid #1ABB9C !important;
-    outline-offset: -1px
-}
 table.display {
     margin: 0 auto;
     clear: both;
@@ -1386,22 +1337,11 @@ table.display thead th:active,
 table.display thead td:active {
     outline: none
 }
-.dataTables_scroll {
-    clear: both
-}
-.dataTables_scrollBody {
-    *margin-top: -1px;
-    -webkit-overflow-scrolling: touch
-}
-.top .dataTables_info {
-    float: none
-}
+
 .clear {
     clear: both
 }
-.dataTables_empty {
-    text-align: center
-}
+
 tfoot input {
     margin: 0.5em 0;
     width: 100%;
@@ -1419,9 +1359,7 @@ td.details {
     background-color: #d1cfd0;
     border: 2px solid #A19B9E
 }
-.example_alt_pagination div.dataTables_info {
-    width: 40%
-}
+
 .paging_full_numbers {
     width: 400px;
     height: 22px;
@@ -4167,7 +4105,7 @@ ul.notifications {
     line-height: 11px;
     margin-top: 4px;
 }
-@media (max-width: 460px) {
+/*@media (max-width: 460px) {
     .dataTables_wrapper .col-sm-6 {
         width: 100%;
         margin-bottom: 5px;
@@ -4180,7 +4118,7 @@ ul.notifications {
 
 @media (max-width: 767px) {
    .dataTables_length { float:none; }
-}
+}*/
 
 
 
@@ -4236,6 +4174,3 @@ table thead .checkbox.radio { margin-top:-7px;margin-top:-21px; }
 
 .daterangepicker.xdisplay { width:228px; }
 
-.dataTables_wrapper > .row{
-  overflow:auto !important; /*prevent datatables overflowing its container*/
-}

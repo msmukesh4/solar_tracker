@@ -22,23 +22,50 @@
 </html>
  -->
 
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <%= csrf_meta_tags %>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Meta, title, CSS, favicons, etc. -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <head>
+        <%= csrf_meta_tags %>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!-- Meta, title, CSS, favicons, etc. -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <%= stylesheet_link_tag 'application', media: 'all' %>
 
-    <title>Gentelella Alela!</title>
+        <title>SolarTracker</title>
 
-  </head>
+    </head>
 
-  <body class="nav-md">
-    <%= yield %>
-    <%= javascript_include_tag 'application' %>
-  </body>
+    <body class="nav-md">
+        <div class="container body">
+            <div class="main_container">
+
+                <!-- sidebar  -->
+                <%= render partial: "shared/sidenav"%>
+                <!-- /sidebar -->
+
+                <!-- top navigation -->
+                <%= render partial: "shared/topbar"%>
+                <!-- /top navigation -->
+
+                <!-- page content -->
+                    <%# if user_signed_in? %>
+                      <%#= link_to "Logout", destroy_user_session_path, method: :delete, class: "page-scroll btn-danger btn" %>
+                      <!-- <br/>
+                      <br/><br/> -->
+                    <%# end %>
+                <!-- page content -->
+                <div class="right_col" role="main">
+                    <%= yield %>
+                </div>
+                    <!-- /page content -->
+
+                <!-- footer content -->
+                <%= render partial: "shared/footer" %>
+                <!-- /footer content -->
+            </div>
+        </div>
+        <%= javascript_include_tag 'application' %>
+    </body>
 </html>
